@@ -1,0 +1,3 @@
+import { PROVIDERS, type Provider } from '../lib/schema-converter/types';
+interface Props { value: Provider; onChange: (p: Provider) => void; label: string; }
+export function ProviderSelector({ value, onChange, label }: Props) { return <div className="provider-selector"><div className="selector-label">{label}</div><div className="provider-options">{PROVIDERS.map(p => <button key={p.id} className={`provider-option ${value === p.id ? 'selected' : ''}`} onClick={() => onChange(p.id)}><span className="provider-mark" style={{ background: p.color }}>{p.short.slice(0, 1)}</span><span>{p.short}</span>{value === p.id && <span className="selected-dot"/>}</button>)}</div></div>; }
